@@ -78,7 +78,7 @@ plt.show()
 
 ## 3D trajectory
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 ax.plot(x*1e6, y*1e6, z)
 ax.set_xlabel('$x$ [µm]')
 ax.set_ylabel('$y$ [µm]')

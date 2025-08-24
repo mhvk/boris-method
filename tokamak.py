@@ -66,7 +66,7 @@ x_line, y_line, z_line = tok.get_field_lines()
 Ec = 0.5 * mass * (vx**2 + vy**2 + vz**2)
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 ax.plot(x, y, z)
 for i in range(16):
     ax.plot(x_line[i,:], y_line[i,:], z_line[i,:], 'r', linewidth=1)

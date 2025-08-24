@@ -56,7 +56,7 @@ for n in range(N):
 
 ## 3D trajectory
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 for n in range(N):
     ax.plot(x[n,:]*1e6, y[n,:]*1e6, z[n,:], label='part ' + str(n))
 ax.set_xlabel('$x$ [µm]')
