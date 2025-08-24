@@ -40,7 +40,7 @@ class Particle:
         ## Rotation of speed according to B
         t = self.charge * dt * B / (2 * self.mass)
         v1 = self.v + np.cross(self.v, t)
-        self.v += np.cross(v1, 2 /(1 + np.abs(t)**2) * t)
+        self.v += np.cross(v1, 2 /(1 + (np.abs(t)**2).sum(-1)) * t)
 
         ## Adding second half of the magnetic impulse
         self.v += self.charge * E * dt / (2 * self.mass)
