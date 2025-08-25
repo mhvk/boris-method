@@ -24,7 +24,7 @@ mass = cst.Mp
 E0 = np.array((0, 0, 0))
 B0 = np.array((0, 0, 1))
 w0 = np.abs(charge) * np.sqrt(np.sum(B0*B0, axis=0)) / mass
-dt = 0.001 / w0       # timestep
+dt = 0.01 / w0       # timestep
 Np = 10             # Number of cyclotronic periods
 
 Tf = Np * 2 * np.pi / w0
@@ -36,8 +36,9 @@ vx, vy, vz = np.zeros((Nt)), np.zeros((Nt)), np.zeros((Nt))   # velocities
 part = Particle(mass, charge)
 part.initPos(0, 0, 0)
 part.initSpeed(200, 0, 0)
+vx[0] = 200
 
-for i in range(Nt):
+for i in range(1, Nt):
     part.push(dt, E0, B0)
     x[i], y[i], z[i] = part.r
     vx[i], vy[i], vz[i] = part.v
